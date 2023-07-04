@@ -2,29 +2,46 @@ import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
+import typescript from "@rollup/plugin-typescript";
+import commonjs from "@rollup/plugin-commonjs";
+import dts from "rollup-plugin-dts";
 
-export default [
+const packageJson = require("./package.json");
+
+const rollupConfig = [
   {
-    input: "./src/index.js",
+    input: "src/index.ts",
     output: [
       {
-        file: "dist/index.js",
+        file: packageJson.main,
         format: "cjs",
+        sourcemap: true,
       },
       {
-        file: "dist/index.es.js",
+        file: packageJson.module,
         format: "es",
         exports: "named",
+        sourcemap: true,
       },
     ],
     plugins: [
       resolve(),
+      external(),
+      typescript(),
+      commonjs(),
       babel({
         exclude: "node_modules/**",
         presets: ["@babel/env", "@babel/preset-react"],
       }),
-      external(),
       terser(),
     ],
+    external: ["react", "react-dom", "styled-components"],
+  },
+  {
+    input: "src/index.ts",
+    output: [{ file: packageJson.types, format: "es" }],
+    plugins: [dts.default()],
   },
 ];
+
+export default rollupConfig;

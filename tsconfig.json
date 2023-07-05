@@ -5,7 +5,7 @@
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom", "es2016", "es2017"],
-    "jsx": "react-jsx",
+    "jsx": "react",
     "declaration": true,
     "declarationDir": "types",
     "sourceMap": true,
@@ -24,10 +24,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts*"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src/**/*.test.tsx",
-    "src/**/*.stories.tsx"
-  ]
+  "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "src/**/*.stories.tsx"]
 }

@@ -12,7 +12,7 @@
     "test:prettier": "prettier \"src/components/**/*.{js,jsx,ts,tsx}\" --list-different",
     "test:unit": "jest --coverage --passWithNoTests",
     "storybook": "storybook dev -p 6006",
-    "clean": "rimraf dist && rimraf storybook-static",
+    "clean": "rimraf dist && rimraf storybook-static && rimraf coverage",
     "build": "npm run clean && run-p build:*",
     "build:storybook": "storybook build",
     "build:lib": "rollup -c --bundleConfigAsCjs"

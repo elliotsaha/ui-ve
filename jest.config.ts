@@ -1,6 +1,9 @@
 import type { Config } from "jest";
 
 const config: Config = {
+  transform: {
+    "\\.styles\\.ts$": "@vanilla-extract/jest-transform",
+  },
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/dist/"],
   preset: "ts-jest",
   verbose: true,
@@ -8,6 +11,7 @@ const config: Config = {
   collectCoverageFrom: [
     "<rootDir>/src/components/**/*.{js,jsx,ts,tsx}",
     "!<rootDir>/src/components/**/*.stories.{js,jsx,ts,tsx}",
+    "!<rootDir>/src/components/**/index.{js,jsx,ts,tsx}",
   ],
   coverageDirectory: "<rootDir>/coverage/jest",
   testEnvironment: "jest-environment-jsdom",

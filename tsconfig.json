@@ -22,7 +22,12 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src/**/*.ts*"],
   "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "src/**/*.stories.tsx"]

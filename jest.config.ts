@@ -2,7 +2,7 @@ import type { Config } from "jest";
 
 const config: Config = {
   transform: {
-    "\\.styles\\.ts$": "@vanilla-extract/jest-transform",
+    "\\.css\\.ts$": "@vanilla-extract/jest-transform",
   },
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/dist/"],
   preset: "ts-jest",

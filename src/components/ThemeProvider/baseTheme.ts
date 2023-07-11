@@ -11,7 +11,7 @@ import {
   radii,
   zIndices,
   borderWidths,
-} from "@utils/themeObjects";
+} from "@utils/tokens";
 
 // baseTheme is the theme className string
 export const [baseTheme, baseThemeVars] = createTheme({
